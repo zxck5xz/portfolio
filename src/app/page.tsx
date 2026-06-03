@@ -1,7 +1,9 @@
 import Hero from '@/components/Hero';
-import Experience from '@/components/Experience';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
+import dynamic from 'next/dynamic';
+
+const Experience = dynamic(() => import('@/components/Experience'));
+const Skills = dynamic(() => import('@/components/Skills'));
+const Projects = dynamic(() => import('@/components/Projects'));
 
 export default function Home() {
   return (
