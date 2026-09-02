@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -24,44 +25,105 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <div className="contact-title">
-          <h2 className="title">Contact</h2>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="title">Get In Touch</h2>
+        </motion.div>
 
         {submitted ? (
-          <div style={{ maxWidth: 500, margin: "20px auto", padding: 20, border: "1px solid var(--gray-2)" }}>
-            <p>Message sent. I&apos;ll get back to you shortly.</p>
-          </div>
+          <motion.div
+            className="contact-success"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="success-icon">✓</span>
+            <p>Message sent! I'll get back to you shortly.</p>
+          </motion.div>
         ) : (
-          <>
-            <div className="contact-content">
+          <div className="contact-wrapper">
+            <motion.div
+              className="contact-info"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+            >
+              <h3>Let's work together</h3>
               <p>
-                Let&apos;s discuss your project and how I can help.
-                <br />
-                Feel free to reach out!
+                Have a project in mind? I'd love to hear about it. Let's discuss
+                how I can help bring your ideas to life.
               </p>
-              <div style={{ marginTop: "20px", fontSize: "14px", color: "var(--gray)" }}>
-                <p>📞 +84 338 120 165</p>
-                <p>✉️ tuongvan92@gmail.com</p>
-                <p>🔗 linkedin.com/in/dotuongvan</p>
-                <p>📍 Ho Chi Minh City, Vietnam</p>
-              </div>
-            </div>
 
-            <form className="contactForm" onSubmit={handleSubmit}>
-              <div className="input-box">
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="email" name="email" placeholder="Email Address" required />
+              <div className="contact-details">
+                <div className="contact-detail-item">
+                  <span className="contact-icon">📧</span>
+                  <div>
+                    <span className="contact-label">Email</span>
+                    <a href="mailto:tuongvan92@gmail.com">tuongvan92@gmail.com</a>
+                  </div>
+                </div>
+                <div className="contact-detail-item">
+                  <span className="contact-icon">📱</span>
+                  <div>
+                    <span className="contact-label">Phone</span>
+                    <a href="tel:+84338120165">+84 338 120 165</a>
+                  </div>
+                </div>
+                <div className="contact-detail-item">
+                  <span className="contact-icon">📍</span>
+                  <div>
+                    <span className="contact-label">Location</span>
+                    <span>Ho Chi Minh City, Vietnam</span>
+                  </div>
+                </div>
               </div>
-              <textarea name="message" cols={30} rows={10} placeholder="Your Message" required />
-              <div className="contact-button">
-                <button type="submit" className="btn btn-red">Send Message</button>
+
+              <div className="contact-social">
+                <a href="https://github.com/zxck5xz" target="_blank" rel="noreferrer">
+                  <img src="/icons/github.svg" alt="GitHub" />
+                </a>
+                <a href="https://linkedin.com/in/dotuongvan" target="_blank" rel="noreferrer">
+                  <img src="/icons/linkedin.svg" alt="LinkedIn" />
+                </a>
               </div>
-            </form>
-          </>
+            </motion.div>
+
+            <motion.form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="form-group">
+                <input type="text" name="name" placeholder="Your Name" required />
+              </div>
+              <div className="form-group">
+                <input type="email" name="email" placeholder="Your Email" required />
+              </div>
+              <div className="form-group">
+                <input type="text" name="subject" placeholder="Subject" />
+              </div>
+              <div className="form-group">
+                <textarea
+                  name="message"
+                  rows={5}
+                  placeholder="Your Message"
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-red btn-full">
+                Send Message
+              </button>
+            </motion.form>
+          </div>
         )}
-
-        <div className="response" />
       </div>
     </section>
   );
