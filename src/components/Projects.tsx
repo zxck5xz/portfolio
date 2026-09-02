@@ -1,52 +1,71 @@
-import React from 'react';
+"use client";
+
+import Image from "next/image";
 
 const projects = [
   {
-    title: 'Agent Platform',
-    role: 'Senior ReactJS Developer | Jul 2020 – Mar 2025',
-    description: 'Led end-to-end frontend architecture of agent.asoview.com, a large-scale B2B platform. Built a scalable reusable component library using React, Redux, and Ant Design. Engineered complex filterable data tables with React Query.',
-    tech: ['React', 'Redux', 'Ant Design', 'React Query']
+    title: "AI Chat UI",
+    category: "Next.js · TypeScript · Gemini API · Cloudflare Workers",
+    img: "/images/ai-chat.png",
+    href: "https://ai-chat-ui-theta.vercel.app",
+    description: "Full-stack AI chat with streaming LLM responses, conversation management, and source visualization.",
   },
   {
-    title: 'Kabu&Peace (Japan)',
-    role: 'Golang Backend + React Integration | Aug 2024 – Jun 2025',
-    description: 'Built high-throughput REST APIs using Golang consumed by React frontends — providing full-stack insight into API integration and frontend-backend collaboration.',
-    tech: ['Golang', 'React', 'REST APIs']
+    title: "Fraud Risk Dashboard",
+    category: "React · TypeScript · GraphQL · Node BFF",
+    img: "/images/fraud.png",
+    href: "https://fraud-dashboard-zck5xz.vercel.app",
+    description: "End-to-end fraud-monitoring dashboard with rule-based detection engine and 30+ Jest tests.",
   },
   {
-    title: 'Poly Educations Mobile Apps',
-    role: 'Frontend Developer | Jul 2019 – Jul 2020',
-    description: 'Built cross-platform apps with real-time event tracking, secure payment gateway integration, and push notification pipelines.',
-    tech: ['React Native', 'Real-time', 'Mobile']
+    title: "Agent Platform (Japan)",
+    category: "React · Next.js · Redux · Tailwind CSS",
+    img: "/images/agent.png",
+    href: "#!",
+    description: "Large-scale B2B platform for Japanese clients with analytics dashboards and booking management.",
   },
   {
-    title: 'ITportal (VNG)',
-    role: 'Full-stack Contributor | Jan 2018 – Jul 2019',
-    description: 'Delivered web (PHP/KnockoutJS) and mobile (Cordova) versions of an internal IT portal, gaining experience in scalable internal tooling and enterprise-grade UX flows.',
-    tech: ['PHP', 'KnockoutJS', 'Cordova']
-  }
+    title: "Kabu & Peace (Japan)",
+    category: "Golang · React · Azure DevOps",
+    img: "/images/kabup.png",
+    href: "#!",
+    description: "REST APIs built with Golang consumed by React frontends for stock trading platform.",
+  },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-wrapper projects-section">
-      <h2 className="section-title fade-in-up">Key Projects.</h2>
-      
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div key={index} className={`project-card glass-panel fade-in-up delay-${(index % 3) + 1}`}>
-            <div className="project-header">
-               <h3>{project.title}</h3>
-               <span className="project-role">{project.role}</span>
+    <section id="projects" className="projects">
+      <div className="container container-lg">
+        <div className="projects-title">
+          <h2 className="title">Works</h2>
+        </div>
+
+        <div className="projects-row">
+          {projects.map((project, i) => (
+            <div
+              key={i}
+              className="project-box"
+              style={{ animationDelay: `${i * 0.3}s` }}
+            >
+              <a href={project.href} target="_blank" rel="noreferrer">
+                <Image
+                  className="project-img"
+                  src={project.img}
+                  alt={project.title}
+                  width={510}
+                  height={380}
+                />
+                <div className="project-mask">
+                  <div className="project-caption">
+                    <h5 className="white">{project.title}</h5>
+                    <p className="white">{project.category}</p>
+                  </div>
+                </div>
+              </a>
             </div>
-            <p className="project-desc">{project.description}</p>
-            <div className="project-tech">
-              {project.tech.map((tech, i) => (
-                <span key={i} className="tech-tag">{tech}</span>
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
