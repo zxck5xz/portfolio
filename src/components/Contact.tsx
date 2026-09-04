@@ -42,7 +42,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
           >
             <span className="success-icon">✓</span>
-            <p>Message sent! I'll get back to you shortly.</p>
+            <p>Message sent! I&apos;ll get back to you shortly.</p>
           </motion.div>
         ) : (
           <div className="contact-wrapper">
@@ -53,9 +53,9 @@ export default function Contact() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7 }}
             >
-              <h3>Let's work together</h3>
+              <h3>Let&apos;s work together</h3>
               <p>
-                Have a project in mind? I'd love to hear about it. Let's discuss
+                Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss
                 how I can help bring your ideas to life.
               </p>
 

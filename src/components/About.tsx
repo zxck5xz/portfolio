@@ -6,30 +6,30 @@ import { motion } from "framer-motion";
 const skills = [
   { name: "React / Next.js", percent: 95, color: "#61DAFB" },
   { name: "TypeScript", percent: 92, color: "#3178C6" },
-  { name: "Tailwind CSS / SCSS", percent: 90, color: "#06B6D4" },
-  { name: "JavaScript (ES6+)", percent: 90, color: "#F7DF1E" },
-  { name: "Redux / Zustand / React Query", percent: 88, color: "#764ABC" },
-  { name: "Micro Frontend (Module Federation)", percent: 80, color: "#FF6B6B" },
-  { name: "Node.js / Express BFF", percent: 70, color: "#339933" },
-  { name: "Docker / CI/CD / AWS", percent: 65, color: "#FF9900" },
+  { name: "Gemini / OpenAI APIs", percent: 90, color: "#8B5CF6" },
+  { name: "RAG & Vector Search", percent: 88, color: "#10B981" },
+  { name: "Cloudflare Workers", percent: 85, color: "#F97316" },
+  { name: "AI Agent Orchestration", percent: 85, color: "#EC4899" },
+  { name: "Streaming & SSE", percent: 88, color: "#06B6D4" },
+  { name: "Eval & Observability", percent: 80, color: "#EF4444" },
 ];
 
 const services = [
   {
-    title: "Frontend Development",
-    desc: "Building responsive, high-performance web applications with React.js, Next.js, and TypeScript — from UI/UX conversion through production deployment.",
+    title: "AI-Powered Frontends",
+    desc: "Streaming LLM UIs with Vercel AI SDK, real-time token rendering, abort/retry logic, and multi-state conversation UX.",
     icon: "🚀",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   },
   {
-    title: "AI-Adjacent Engineering",
-    desc: "Integrating LLM APIs (Google Gemini, OpenAI) with streaming responses, conversation management, and edge computing deployment on Cloudflare Workers.",
+    title: "RAG & Search Systems",
+    desc: "Full RAG pipelines with query classification, HyDE expansion, cross-encoder reranking, hybrid BM25+Vector search, and embedding caching.",
     icon: "🤖",
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
   },
   {
-    title: "Performance Optimization",
-    desc: "Optimizing Core Web Vitals through code splitting, lazy loading, memoization, and bundle analysis — delivering fast, smooth user experiences.",
+    title: "Multi-Agent & Voice AI",
+    desc: "Agent orchestration with function calling, tool-use loops, voice pipelines (Whisper STT → LLM → TTS), and multi-modal vision.",
     icon: "⚡",
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
   },
@@ -70,16 +70,16 @@ export default function About() {
             transition={{ duration: 0.7 }}
           >
             <p className="about-descr">
-              Frontend Developer with <strong>4+ years of React.js/Next.js expertise</strong> and growing AI-adjacent engineering skills. Proven track record of working directly with international remote teams (Japan, Korea) to deliver full-cycle feature development — from UI/UX design conversion through integration testing, UAT, and maintenance.
+              AI-Adjacent React Engineer with <strong>4+ years building production web apps</strong> and a deep focus on AI systems — from streaming chat UIs to RAG pipelines, multi-agent orchestration, voice AI, and eval dashboards. I&apos;ve shipped <strong>13 end-to-end AI projects</strong> deployed on Vercel + Cloudflare Workers.
             </p>
             <div className="about-stats">
               <div className="stat-item">
-                <span className="stat-number">4+</span>
-                <span className="stat-label">Years Experience</span>
+                <span className="stat-number">13</span>
+                <span className="stat-label">AI Projects</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">20+</span>
-                <span className="stat-label">Projects Delivered</span>
+                <span className="stat-number">4+</span>
+                <span className="stat-label">Years Experience</span>
               </div>
               <div className="stat-item">
                 <span className="stat-number">5+</span>

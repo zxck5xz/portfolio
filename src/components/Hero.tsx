@@ -40,11 +40,20 @@ export default function Hero() {
               transition={{ delay: 0.8, duration: 0.6 }}
             >
               <span className="hero-heading-subtitle">
-                Frontend Developer
+                AI-Adjacent Engineer
               </span>
               <span className="hero-tagline">|</span>
               <TypingText />
             </motion.div>
+
+            <motion.p
+              className="hero-desc"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+            >
+              Building production-grade AI systems — streaming LLM UIs, RAG pipelines, multi-agent orchestration, voice AI, and eval dashboards. 13 projects. Full-stack. Deployed.
+            </motion.p>
 
             <motion.div
               className="hero-tech-stack"
@@ -52,13 +61,18 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
-              {["React", "Next.js", "TypeScript", "Tailwind", "Redux"].map(
-                (tech, i) => (
-                  <span key={tech} className="tech-badge" style={{ animationDelay: `${i * 0.1}s` }}>
-                    {tech}
-                  </span>
-                )
-              )}
+              {[
+                "React / Next.js",
+                "TypeScript",
+                "Gemini / OpenAI",
+                "Cloudflare Workers",
+                "RAG / Vector DB",
+                "Agents / MCP",
+              ].map((tech, i) => (
+                <span key={tech} className="tech-badge" style={{ animationDelay: `${i * 0.1}s` }}>
+                  {tech}
+                </span>
+              ))}
             </motion.div>
 
             <motion.div
@@ -84,10 +98,10 @@ export default function Hero() {
               transition={{ delay: 1.6, duration: 0.6 }}
             >
               <a href="#projects" className="btn">
-                View Work
+                View Projects
               </a>
               <a href="#contact" className="btn btn-white">
-                Let's Talk
+                Let&apos;s Talk
               </a>
             </motion.div>
           </motion.div>
@@ -118,10 +132,10 @@ export default function Hero() {
 
 function TypingText() {
   const roles = [
-    "React / Next.js",
-    "TypeScript",
-    "UI/UX Development",
-    "AI-Adjacent Engineering",
+    "RAG & Search Engine",
+    "Multi-Agent Systems",
+    "Voice & Multi-Modal AI",
+    "Eval & Observability",
   ];
 
   return (
