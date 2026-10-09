@@ -13,7 +13,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "DO TUONG VAN | AI-Adjacent React Engineer",
   description:
-    "Portfolio of Do Tuong Van — AI-Adjacent React Engineer. 13 production AI projects: streaming chat, RAG pipelines, multi-agent orchestration, voice AI, eval dashboards. Built with Next.js, Gemini, Cloudflare Workers.",
+    "Portfolio of Do Tuong Van — AI-Adjacent React Engineer. 13 production AI projects: streaming chat, RAG pipelines, multi-agent orchestration, voice AI, eval dashboards — plus a production Hospital Information System (React + Spring Boot). Built with Next.js, Gemini, Cloudflare Workers.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "all" | "chat" | "rag" | "agents" | "eval" | "voice" | "multimodal" | "search";
+type Category = "all" | "client" | "chat" | "rag" | "agents" | "eval" | "voice" | "multimodal" | "search";
 
 const categories: { key: Category; label: string }[] = [
   { key: "all", label: "All Projects" },
+  { key: "client", label: "Client Work" },
   { key: "chat", label: "Chat & UI" },
   { key: "rag", label: "RAG & Search" },
   { key: "agents", label: "Agents" },
@@ -16,7 +17,30 @@ const categories: { key: Category; label: string }[] = [
   { key: "search", label: "Search Engine" },
 ];
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  href: string | null;
+  tags: string[];
+  color: string;
+  icon: string;
+  phase: string;
+};
+
+const projects: Project[] = [
+  {
+    id: 14,
+    title: "HIS — Hospital Information System",
+    category: "client",
+    description: "Outpatient clinic platform for Nguyen Phuong Clinic, built fullstack: reception with BHYT/BHXH lookup, examination with ICD-10, lab & imaging result approval and printing, realtime LCD patient calling (SSE + WebSocket + TTS), staff management, RBAC.",
+    href: null,
+    tags: ["React 18", "TypeScript", "Ant Design", "Spring Boot", "PostgreSQL", "SSE / WebSocket"],
+    color: "#0EA5E9",
+    icon: "🏥",
+    phase: "Sep 2026 – Now",
+  },
   {
     id: 1,
     title: "AI Chat UI",
@@ -193,9 +217,9 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
         >
           <div className="projects-title">
-            <h2 className="title">AI Projects</h2>
+            <h2 className="title">Projects</h2>
             <p className="projects-subtitle">
-              13 production-grade AI systems — from streaming chat to eval dashboards
+              Production client work plus 13 AI systems — from a hospital information system to streaming chat and eval dashboards
             </p>
           </div>
         </motion.div>
@@ -278,16 +302,9 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project }: { project: (typeof projects)[0] }) {
-  return (
-    <motion.a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
-      className="project-card"
-      whileHover={{ y: -8, scale: 1.01 }}
-      transition={{ duration: 0.3 }}
-    >
+function ProjectCard({ project }: { project: Project }) {
+  const body = (
+    <>
       <div className="project-card-header" style={{ background: `linear-gradient(135deg, ${project.color}cc, ${project.color}88)` }}>
         <span className="project-icon">{project.icon}</span>
         <span className="project-phase">{project.phase}</span>
@@ -303,16 +320,45 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           ))}
         </div>
         <div className="project-card-footer">
-          <span className="project-live-link">
-            Live Demo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </span>
+          {project.href ? (
+            <span className="project-live-link">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </span>
+          ) : (
+            <span className="project-private-note">Client project · Private repo</span>
+          )}
         </div>
       </div>
+    </>
+  );
+
+  if (!project.href) {
+    return (
+      <motion.div
+        className="project-card project-card--static"
+        whileHover={{ y: -8, scale: 1.01 }}
+        transition={{ duration: 0.3 }}
+      >
+        {body}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.a
+      href={project.href}
+      target="_blank"
+      rel="noreferrer"
+      className="project-card"
+      whileHover={{ y: -8, scale: 1.01 }}
+      transition={{ duration: 0.3 }}
+    >
+      {body}
     </motion.a>
   );
 }

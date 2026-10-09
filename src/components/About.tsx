@@ -70,7 +70,7 @@ export default function About() {
             transition={{ duration: 0.7 }}
           >
             <p className="about-descr">
-              AI-Adjacent React Engineer with <strong>4+ years building production web apps</strong> and a deep focus on AI systems — from streaming chat UIs to RAG pipelines, multi-agent orchestration, voice AI, and eval dashboards. I&apos;ve shipped <strong>13 end-to-end AI projects</strong> deployed on Vercel + Cloudflare Workers.
+              AI-Adjacent React Engineer with <strong>4+ years building production web apps</strong> and a deep focus on AI systems — from streaming chat UIs to RAG pipelines, multi-agent orchestration, voice AI, and eval dashboards. I&apos;ve shipped <strong>13 end-to-end AI projects</strong> deployed on Vercel + Cloudflare Workers. Currently building a <strong>Hospital Information System (HIS)</strong> end-to-end — React/TypeScript frontend and Spring Boot/PostgreSQL backend — for a private clinic.
             </p>
             <div className="about-stats">
               <div className="stat-item">

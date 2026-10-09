@@ -716,6 +716,16 @@ h5 {
   gap: 10px;
 }
 
+.project-card--static {
+  cursor: default;
+}
+
+.project-private-note {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-text);
+}
+
 /* ── Projects Summary ── */
 .projects-summary {
   display: grid;
